@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/holder">
+
+    <fragment
+        android:id="@+id/holder"
+        android:name="com.tagrohan.kanban.views.Holder"
+        android:label="fragment_holder"
+        tools:layout="@layout/fragment_holder" />
+    <fragment
+        android:id="@+id/doing"
+        android:name="com.tagrohan.kanban.views.Doing"
+        android:label="fragment_doing"
+        tools:layout="@layout/fragment_doing" />
+    <fragment
+        android:id="@+id/done"
+        android:name="com.tagrohan.kanban.views.Done"
+        android:label="fragment_done"
+        tools:layout="@layout/fragment_done" />
+    <fragment
+        android:id="@+id/idea"
+        android:name="com.tagrohan.kanban.views.Idea"
+        android:label="fragment_idea"
+        tools:layout="@layout/fragment_idea" />
+    <fragment
+        android:id="@+id/todo"
+        android:name="com.tagrohan.kanban.views.Todo"
+        android:label="fragment_todo"
+        tools:layout="@layout/fragment_todo" />
+</navigation>

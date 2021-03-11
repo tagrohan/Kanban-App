@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/header_background"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_230sdp"
+        android:background="#DCDCDC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_margin="@dimen/_50sdp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_pic"
+        app:layout_constraintBottom_toBottomOf="@id/header_background"
+        app:layout_constraintEnd_toEndOf="@id/header_background"
+        app:layout_constraintStart_toStartOf="@id/header_background"
+        app:layout_constraintTop_toTopOf="@id/header_background"
+        app:shapeAppearanceOverlay="@style/circle" />
+
+
+    <TextView
+        android:id="@+id/avatar_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/avatar"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintBottom_toBottomOf="@id/header_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
+
+        tool:text="person name" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/avatar_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/back_ripple_effect"
+        android:drawableLeft="@drawable/ic_edit_profile"
+        android:paddingStart="@dimen/_10sdp"
+        android:text="View Profile"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_background" />
+
+    <ImageView
+        android:id="@+id/karma"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:src="@drawable/ic_karma"
+        app:layout_constraintEnd_toStartOf="@id/no_of_karma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar_button" />
+
+    <TextView
+        android:id="@+id/no_of_karma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="78"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@id/no_of_karma_sub"
+        app:layout_constraintStart_toEndOf="@id/karma"
+        app:layout_constraintTop_toTopOf="@id/karma"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/no_of_karma_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="interactions"
+        android:textAlignment="center"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@id/karma"
+        app:layout_constraintStart_toStartOf="@id/no_of_karma"
+        app:layout_constraintTop_toBottomOf="@id/no_of_karma" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <ImageView
+        android:id="@+id/age"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:src="@drawable/ic_soul"
+        app:layout_constraintEnd_toStartOf="@id/no_of_age"
+        app:layout_constraintStart_toStartOf="@id/vertical_guide"
+        app:layout_constraintTop_toBottomOf="@id/avatar_button" />
+
+    <TextView
+        android:id="@+id/no_of_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+
+        android:text="1y 6m"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@id/no_of_age_sub"
+        app:layout_constraintStart_toEndOf="@id/age"
+        app:layout_constraintTop_toTopOf="@id/age"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/no_of_age_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="social age"
+        android:textAlignment="center"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@id/age"
+        app:layout_constraintStart_toStartOf="@id/no_of_age"
+        app:layout_constraintTop_toBottomOf="@id/no_of_age" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0.5dp"
+        android:layout_height="@dimen/_30sdp"
+
+        android:background="@color/colorTextHint"
+        app:layout_constraintBottom_toBottomOf="@id/no_of_karma_sub"
+        app:layout_constraintEnd_toEndOf="@id/vertical_guide"
+        app:layout_constraintStart_toStartOf="@id/vertical_guide"
+        app:layout_constraintTop_toTopOf="@id/karma" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:background="@color/colorTextHint"
+        app:layout_constraintTop_toBottomOf="@id/no_of_karma_sub" />
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/drawer_recycler"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/view2" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
