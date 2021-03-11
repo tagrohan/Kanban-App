@@ -41,6 +41,7 @@ class Todo : Fragment() {
         bottomDialogCallBack()
 
 
+
         //observer
 
         model.todo.observe(viewLifecycleOwner) {
@@ -52,23 +53,25 @@ class Todo : Fragment() {
 
 
         binding.todoSave.setOnClickListener {
-            if (binding.todoTitle.text.toString().isNotBlank()) {
-                notifySnackBar(binding.todoTitle.text.toString())
-//                recycler.addData(
-//                    binding.todoTitle.text.toString(),
-//                    binding.todoDescription.text.toString()
-//                )
-                model.stageChecking(
-                    TodoData(
-                        binding.todoTitle.text.toString(),
-                        binding.todoDescription.text.toString(),
-                        binding.category.text.toString().toInt()
+            try {
+                if (binding.todoTitle.text.toString()
+                        .isNotBlank() && binding.category.text.toString().isNotBlank()
+                ) {
+                    notifySnackBar(binding.todoTitle.text.toString())
+                    model.stageChecking(
+                        TodoData(
+                            binding.todoTitle.text.toString(),
+                            binding.todoDescription.text.toString(),
+                            binding.category.text.toString().toInt()
+                        )
                     )
-                )
-                binding.motionLayout.transitionToStart()
-                isOpen = false
-            } else {
-                notifySnackBar("text can't be empty")
+                    binding.motionLayout.transitionToStart()
+                    isOpen = false
+                } else {
+                    notifySnackBar("Enter field carefully")
+                }
+            } catch (e: NumberFormatException) {
+                notifySnackBar("Enter field carefully")
             }
         }
     }

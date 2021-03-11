@@ -71,7 +71,7 @@
             android:layout_marginTop="@dimen/_60sdp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toEndOf="@id/profile_name"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"></Constraint>
         <Constraint
             android:id="@id/anchor"
             android:layout_width="0dp"

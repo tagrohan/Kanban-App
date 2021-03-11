@@ -13,7 +13,7 @@
         android:layout_width="@dimen/_35sdp"
         android:layout_height="@dimen/_35sdp"
         android:layout_margin="@dimen/_5sdp"
-        android:background="@color/colorAccent"
+        android:background="@color/themeOne"
         android:elevation="10dp"
         android:src="@drawable/ic_splash"
         app:layout_constraintEnd_toEndOf="parent"
