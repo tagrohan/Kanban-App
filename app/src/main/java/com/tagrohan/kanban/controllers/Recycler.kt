@@ -3,7 +3,7 @@ package com.tagrohan.kanban.controllers
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tagrohan.kanban.databinding.RecyclerViewBinding
+import com.tagrohan.kanban.databinding.CardLayoutBinding
 import com.tagrohan.kanban.models.TodoData
 
 class Recycler(todos: ArrayList<TodoData>) : RecyclerView.Adapter<Recycler.ViewHol>() {
@@ -12,7 +12,7 @@ class Recycler(todos: ArrayList<TodoData>) : RecyclerView.Adapter<Recycler.ViewH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHol {
         return ViewHol(
-            RecyclerViewBinding.inflate(
+            CardLayoutBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -21,14 +21,14 @@ class Recycler(todos: ArrayList<TodoData>) : RecyclerView.Adapter<Recycler.ViewH
     }
 
     override fun onBindViewHolder(holder: ViewHol, position: Int) {
-        holder.binding.cardText.text = todoData[position].title
+        holder.binding.cardTitle.text = todoData[position].title
     }
 
     override fun getItemCount(): Int {
         return todoData.size
     }
 
-    class ViewHol(itemView: RecyclerViewBinding) : RecyclerView.ViewHolder(itemView.root) {
+    class ViewHol(itemView: CardLayoutBinding) : RecyclerView.ViewHolder(itemView.root) {
         var binding = itemView
     }
 
