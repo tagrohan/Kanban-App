@@ -69,5 +69,9 @@ class MainActivity : AppCompatActivity() {
     interface ClosingAnim {
         fun close()
     }
+
+    fun addNewCode(){
+        println("new code added here")
+    }
 }
 
