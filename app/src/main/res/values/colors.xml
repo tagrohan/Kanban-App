@@ -61,4 +61,7 @@
     <color name="dark">#151E29</color>
 
     <color name="statusNavFrag">#FFFFFF</color>
+
+    <color name="burgerColor">#08A4FA</color>
+    <color name="themeColor">#08A4FA</color>
 </resources>

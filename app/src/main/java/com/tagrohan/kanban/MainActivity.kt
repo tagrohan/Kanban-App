@@ -37,9 +37,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.profileIcon.setOnClickListener {
-            binding.activityMain.transitionToEnd()
+//            binding.mainMotionLayout.transitionToEnd()
             isProfileOpen = true
         }
+
+        binding.drawerOpener.setOnClickListener {
+            if (!binding.drawerLayout.isOpen) {
+                binding.drawerLayout.open()
+            }
+        }
+
+
 
         header.avatarButton.setOnClickListener {
             var snackbar =
@@ -55,19 +63,19 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
 
         when {
+            binding.drawerLayout.isOpen ->
+                binding.drawerLayout.close()
             isProfileOpen -> {
-                binding.activityMain.transitionToStart()
+//                binding.mainMotionLayout.transitionToStart()
                 isProfileOpen = false
             }
-            Todo.isOpen -> {
+            Todo.isOpen ->
                 closingAnim.close()
-            }
             else -> {
                 super.onBackPressed()
             }
         }
     }
-
     interface ClosingAnim {
         fun close()
     }
