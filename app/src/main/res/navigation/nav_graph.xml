@@ -24,10 +24,19 @@
         android:id="@+id/idea"
         android:name="com.tagrohan.kanban.views.Idea"
         android:label="fragment_idea"
-        tools:layout="@layout/fragment_idea" />
+        tools:layout="@layout/fragment_idea" >
+        <action
+            android:id="@+id/idea_totestingFragment"
+            app:destination="@id/testingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/todo"
         android:name="com.tagrohan.kanban.views.Todo"
         android:label="fragment_todo"
         tools:layout="@layout/fragment_todo" />
+    <fragment
+        android:id="@+id/testingFragment"
+        android:name="com.tagrohan.kanban.TestingFragment"
+        android:label="fragment_testing"
+        tools:layout="@layout/fragment_testing" />
 </navigation>

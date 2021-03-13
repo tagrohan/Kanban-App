@@ -39,7 +39,7 @@ class Todo : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         bottomDialogCallBack()
-
+        binding.floatingActionButton.shrink()
 
 
         //observer
@@ -88,6 +88,7 @@ class Todo : Fragment() {
     // handling all the logic behind opening and closing dialog(motion layout)
     private fun bottomDialogCallBack() {
         binding.floatingActionButton.setOnClickListener {
+            binding.floatingActionButton.extend()
             binding.motionLayout.transitionToEnd()
             isOpen = true
         }
@@ -95,6 +96,7 @@ class Todo : Fragment() {
         mainActivity.closingAnim = object : MainActivity.ClosingAnim {
             override fun close() {
                 binding.motionLayout.transitionToStart()
+                binding.floatingActionButton.shrink()
                 isOpen = false
             }
         }

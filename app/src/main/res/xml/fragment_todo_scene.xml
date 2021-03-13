@@ -13,7 +13,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/todo_add_dialog"
+            android:id="@id/todo_add_dialog"
             android:layout_width="0dp"
             android:layout_height="550dp"
             android:elevation="5dp"
@@ -22,7 +22,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
-            android:id="@+id/todo_tag"
+            android:id="@id/todo_tag"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:elevation="10dp"
@@ -32,11 +32,13 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@id/todo_add_dialog" />
         <Constraint
-            android:id="@+id/floatingActionButton"
+            android:id="@id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginTop="@dimen/_10sdp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/todo_description" />
 
     </ConstraintSet>
 </MotionScene>

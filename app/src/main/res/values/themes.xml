@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Kanban" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Kanban" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/statusNavFrag</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>

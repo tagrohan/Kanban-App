@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.snackbar.Snackbar
 import com.tagrohan.kanban.databinding.ActivityMainBinding
@@ -20,11 +21,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var header: ProfileDrawerBinding
     lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         header = ProfileDrawerBinding.bind(binding.header.root)
+
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -32,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         )
 
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
 
         binding.profileIcon.setOnClickListener {
             binding.activityMain.transitionToEnd()
@@ -53,12 +55,12 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
 
         when {
-            Todo.isOpen -> {
-                closingAnim.close()
-            }
             isProfileOpen -> {
                 binding.activityMain.transitionToStart()
                 isProfileOpen = false
+            }
+            Todo.isOpen -> {
+                closingAnim.close()
             }
             else -> {
                 super.onBackPressed()

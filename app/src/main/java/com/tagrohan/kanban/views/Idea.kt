@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.tagrohan.kanban.R
 import com.tagrohan.kanban.controllers.Recycler
 import com.tagrohan.kanban.databinding.FragmentIdeaBinding
 import com.tagrohan.kanban.vm.SharedViewModel
@@ -33,6 +35,10 @@ class Idea : Fragment() {
             recycler = Recycler(it)
             binding.ideaRecycler.adapter = recycler
 
+        }
+
+        binding.toTesting.setOnClickListener {
+            findNavController().navigate(R.id.testingFragment)
         }
     }
 
