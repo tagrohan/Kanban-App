@@ -31,10 +31,6 @@
                 android:alpha="0"
                 motion:framePosition="90"
                 motion:motionTarget="@id/main_option" />
-            <KeyAttribute
-                android:alpha="0"
-                motion:framePosition="90"
-                motion:motionTarget="@id/background_image" />
         </KeyFrameSet>
     </Transition>
 
