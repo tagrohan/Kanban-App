@@ -50,8 +50,9 @@
             android:id="@+id/profile_icon"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:background="@color/themeColor"
-            android:src="@drawable/ic_splash"
+            android:background="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -251,7 +252,7 @@
             android:fontFamily="@font/ubuntu_medium"
 
             android:padding="@dimen/_5sdp"
-            android:text="Share with friends"
+            android:text="Feedback and help"
             android:textColor="@android:color/black"
 
             android:textSize="@dimen/_20sdp"
