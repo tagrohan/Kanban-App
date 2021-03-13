@@ -37,8 +37,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.profileIcon.setOnClickListener {
-//            binding.mainMotionLayout.transitionToEnd()
-            isProfileOpen = true
+
+            if (isProfileOpen) {
+                binding.mainMotionLayout.transitionToStart()
+                isProfileOpen = false
+            } else {
+                binding.mainMotionLayout.transitionToEnd()
+                isProfileOpen = true
+            }
+
+        }
+
+        binding.mainBack.setOnClickListener {
+            binding.mainMotionLayout.transitionToStart()
+            isProfileOpen = false
         }
 
         binding.drawerOpener.setOnClickListener {
@@ -66,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout.isOpen ->
                 binding.drawerLayout.close()
             isProfileOpen -> {
-//                binding.mainMotionLayout.transitionToStart()
+                binding.mainMotionLayout.transitionToStart()
                 isProfileOpen = false
             }
             Todo.isOpen ->
@@ -76,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     interface ClosingAnim {
         fun close()
     }

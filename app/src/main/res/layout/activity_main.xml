@@ -8,56 +8,50 @@
     tools:context=".MainActivity">
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:itemIconTint="@color/avatar"
-        app:itemTextColor="@color/avatar">
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <include
-                    android:id="@+id/header"
-                    layout="@layout/profile_drawer" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/main_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-
-    </com.google.android.material.navigation.NavigationView>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/main_motion_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/activity_main_xml_main_motion_layout_scene">
 
 
         <!--    profile layout start from here-->
+
+        <ImageView
+            android:id="@+id/main_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/ripple_effect"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_option"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/main_back"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/ripple_effect"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_back_arrow"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_icon"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:background="@color/burgerColor"
+            android:background="@color/themeColor"
             android:src="@drawable/ic_splash"
-            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -69,7 +63,7 @@
             android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:src="@drawable/ic_burger"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +89,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/guideline">
 
             <View
                 android:id="@+id/anchor"
@@ -133,29 +127,11 @@
             android:layout_height="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_back"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/fake_image"
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="@color/burgerColor"
-            app:cardCornerRadius="@dimen/_40sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/profile_name"
-            app:layout_constraintTop_toBottomOf="@id/guideline">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_profile" />
-        </androidx.cardview.widget.CardView>
-
 
         <TextView
             android:id="@+id/profile_name"
@@ -164,11 +140,11 @@
             android:text="Rohan Singh"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_20sdp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/profile_number"
-            app:layout_constraintEnd_toStartOf="@id/fake_image"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/profile_icon"
+            app:layout_constraintEnd_toStartOf="@id/profile_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/fake_image" />
+            app:layout_constraintTop_toTopOf="@id/profile_icon" />
 
         <TextView
             android:id="@+id/profile_number"
@@ -176,7 +152,7 @@
             android:layout_height="wrap_content"
             android:text="\@tagrohan"
             android:textSize="@dimen/_16sdp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/profile_id"
             app:layout_constraintEnd_toEndOf="@id/profile_name"
             app:layout_constraintStart_toStartOf="@id/profile_name"
@@ -188,7 +164,7 @@
             android:layout_height="wrap_content"
             android:text="Joined March 2020"
             android:textSize="@dimen/_14sdp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/profile_number"
             app:layout_constraintStart_toStartOf="@id/profile_number"
             app:layout_constraintTop_toBottomOf="@id/profile_number" />
@@ -206,6 +182,7 @@
             android:padding="@dimen/_5sdp"
             android:text="Total 42 task completed"
             android:textSize="@dimen/_20sdp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/card_details"
             app:layout_constraintEnd_toEndOf="@id/card_details"
             app:layout_constraintStart_toStartOf="@id/card_details" />
@@ -218,7 +195,7 @@
             android:layout_margin="@dimen/_10sdp"
             android:background="@drawable/profile_detail"
             android:elevation="@dimen/_5sdp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -237,6 +214,7 @@
             android:text="Share with friends"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_20sdp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/setting"
             app:layout_constraintEnd_toEndOf="@id/card_details"
             app:layout_constraintStart_toStartOf="@id/card_details"
@@ -251,11 +229,12 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/ubuntu_medium"
-
             android:padding="@dimen/_5sdp"
+
             android:text="Settings"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_20sdp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/feedback"
             app:layout_constraintEnd_toEndOf="@id/card_details"
             app:layout_constraintStart_toStartOf="@id/card_details"
@@ -270,11 +249,13 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/ubuntu_medium"
+
             android:padding="@dimen/_5sdp"
             android:text="Share with friends"
-
             android:textColor="@android:color/black"
+
             android:textSize="@dimen/_20sdp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/card_details"
             app:layout_constraintStart_toStartOf="@id/card_details"
@@ -283,7 +264,42 @@
 
         <!--    profile layout end here-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:itemIconTint="@color/avatar"
+        app:itemTextColor="@color/avatar">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/header"
+                    layout="@layout/profile_drawer" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/main_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
