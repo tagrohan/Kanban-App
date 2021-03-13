@@ -42,3 +42,6 @@
 
     </ConstraintSet>
 </MotionScene>
+
+
+<!--    motion:transitionEasing="cubic(0.71,0.04,0.34,0.87)"-->

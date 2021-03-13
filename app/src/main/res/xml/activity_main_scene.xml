@@ -27,32 +27,7 @@
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@id/profile_icon"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:elevation="5dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:transitionEasing="cubic(0.71,0.04,0.34,0.87)" />
-        <Constraint
-            android:id="@id/drawerLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:transitionEasing="cubic(0.71,0.04,0.34,0.87)" />
-        <Constraint
-            android:id="@id/anchor"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_10sdp"
-            android:visibility="invisible"
-            motion:layout_constraintBottom_toTopOf="@id/drawerLayout"
-            motion:transitionEasing="cubic(0.71,0.04,0.34,0.87)" />
+
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -72,12 +47,6 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toEndOf="@id/profile_name"
             motion:layout_constraintTop_toTopOf="parent"></Constraint>
-        <Constraint
-            android:id="@id/anchor"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_10sdp"
-            android:visibility="visible"
-            motion:layout_constraintBottom_toTopOf="@id/drawerLayout" />
         <Constraint
             android:id="@id/profile_name"
             android:layout_width="wrap_content"
